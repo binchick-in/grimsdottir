@@ -1,5 +1,9 @@
 DOCKER_TAG ?= grimsdottir
 
+.PHONY: run
+run: build
+	docker run -d -v /home/bill/container_storage/grimsdottir:/home/grimsdottir --name $(DOCKER_TAG)-container $(DOCKER_TAG)
+
 .PHONY: run-dev
 run-dev: build
 	docker run --rm -it -v /home/bill/container_storage/grimsdottir:/home/grimsdottir --name $(DOCKER_TAG)-container $(DOCKER_TAG)
